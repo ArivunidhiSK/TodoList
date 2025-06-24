@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+</head>
+
+<body>
+    <h1>VISION BOARD - 2025</h1>
+    <input id="input">
+    <button onclick="add()">Add</button>
+    <ul id="list-container">
+        <li>Buy a new Car
+            <button onclick="deleteItem(event)">Delete</button>
+        </li>
+    </ul>
+
+</body>
+
+
+<style>
+    body {
+        font-family: cursive;
+        background-color: #fef6e4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40vh;
+    }
+
+
+    h1 {
+        text-align: center;
+        color: brown;
+        margin-bottom: 20px;
+    }
+
+    #input {
+        padding: 10px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 5px 5px;
+        margin-left: 10px;
+        border: none;
+        border: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #b7d831;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 300px;
+        margin-top: 20px;
+    }
+
+    li { 
+        background-color: white;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    li button {
+        background-color: #b7d831;
+        padding: 5px 10px;
+    }
+
+    li button:hover {
+        background-color: #dc3545;
+    }
+</style>
+
+
+<script>
+    //selecting ul
+    var ul = document.getElementById("list-container")
+    var input = document.getElementById("input")
+    function add() {
+        var listitem = document.createElement("li")
+        listitem.innerHTML = input.value + "<button onclick='deleteItem(event)'>Delete</button>"
+        ul.append(listitem)
+    }
+
+    function deleteItem(event) {
+        event.target.parentElement.remove()
+    }
+</script>
